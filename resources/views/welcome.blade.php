@@ -28,25 +28,45 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            h1{
+                font-family: 'Papyrus', monospace;
+                color: #f2f2f2;
+                text-shadow: 2px 2px 5px black;
+            }
         </style>
     </head>
     <body class="antialiased">
 
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0 ">
+     <div
+        class="w-full h-full bg-no-repeat bg-cover bg-left relative flex items-top justify-center  min-h-screen sm:items-center "
+        style="background-image: url('https://cdn.pixabay.com/photo/2017/08/17/13/33/business-2651346_960_720.jpg');"> 
 
+        <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0 "> -->
+
+        <div class="bg-gradient-to-br from-gray-800 to-gray-400 p-4 px-10 py-16 rounded-xl w-screen shadow-md max-w-sm border-4 border-gray-900 ">
+            
+            <div class="text-center text-2xl mb-10">
+                <h1>Bun venit pe pagina cu articole!</h1>
+
+            </div>    
         
             @if (Route::has('login'))
-                <div class="hidden fixed top-15 right-20 px-6 py-4 sm:block">
+                <div class="top-20 right-15 px-12 py-2 space-y-10 ">
                     @auth
+                        <button class="transition-none duration-500 ease-in-out bg-gray-800 hover:bg-gray-400 transform 
+                        hover:-translate-y-1 hover:scale-110 
+                        rounded-lg p-4 border border-gray-200 ml-16">
                     
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-white underline">Home</a>
+                        
+                        </button>
                     @else
                     
                         <button class="transition-none duration-500 ease-in-out bg-gray-800 hover:bg-gray-400 transform 
                         hover:-translate-y-1 hover:scale-110 
                         rounded-lg p-4 border border-gray-200">
 
-                            <a href="{{ route('login') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-white underline">Log in</a>
 
                         </button>
                         
@@ -54,9 +74,9 @@
 
                             <button class="transition-none duration-500 ease-in-out bg-gray-800 hover:bg-gray-400 transform 
                         hover:-translate-y-1 hover:scale-110 
-                        rounded-lg p-4 border border-gray-200">
+                        rounded-lg p-4 border border-gray-200 ml-8">
 
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                <a href="{{ route('register') }}" class="text-sm text-gray-700 dark:text-white underline">Register</a>
 
                             </button>
                         @endif
@@ -64,15 +84,9 @@
                 </div>
             @endif
 
-            <div class="top-0 right-20  max-w-10xl mx-auto sm:px-6 lg:px-15">
-        
-                   <h1 class="capitalize hover:uppercase">
-                        Bun venit pe pagina cu articole!</h1>
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    
-                </div>
-
-            </div>
         </div>
+        
+        <!-- </div> -->
+    </div>
     </body>
 </html>
