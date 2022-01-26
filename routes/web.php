@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ArticolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Ruta pentru pagina cu articole
+Route::get('/article', [ArticolController::class, 'index']);
+
+//Ruta pentru a afisa un singur articol
+Route::get('/article/{article}', [ArticolController::class, 'show'])->name('article.show');
+
+//Ruta pentru a crea un articol
+Route::get('/article/create', [ArticolController::class, 'create']);
+
+//Se va posta articolul in baza de date
+Route::post('/article', [ArticolController::class, 'store'])->name('article.store');
 
 Auth::routes();
 
