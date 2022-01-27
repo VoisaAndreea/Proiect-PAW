@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticolController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -30,8 +31,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Ruta pentru pagina cu articole
+Route::get('/article', [ArticolController::class, 'index']);
+
+
+//Ruta pentru a crea un articol
+Route::get('/article/create', [ArticolController::class, 'create']);
+
+//Ruta pentru a afisa un singur articol
+Route::get('/article/{article}', [ArticolController::class, 'show'])->name('article.show');
+
+//Se va posta articolul in baza de date
+Route::post('/article', [ArticolController::class, 'store'])->name('article.store');
+
+Auth::routes();
 
 require __DIR__.'/auth.php';
