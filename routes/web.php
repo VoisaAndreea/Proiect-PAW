@@ -22,11 +22,12 @@ Route::get('/', function () {
 //Ruta pentru pagina cu articole
 Route::get('/article', [ArticolController::class, 'index']);
 
-//Ruta pentru a afisa un singur articol
-Route::get('/article/{article}', [ArticolController::class, 'show'])->name('article.show');
 
 //Ruta pentru a crea un articol
 Route::get('/article/create', [ArticolController::class, 'create']);
+
+//Ruta pentru a afisa un singur articol
+Route::get('/article/{article}', [ArticolController::class, 'show'])->name('article.show');
 
 //Se va posta articolul in baza de date
 Route::post('/article', [ArticolController::class, 'store'])->name('article.store');
